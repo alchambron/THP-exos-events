@@ -60,9 +60,9 @@ function removeBootstrap() {
 
 // Fonctionnalité 6 
 
-let viewBtn = document.getElementsByClassName('btn btn-sm btn-success');
-let cardsText = document.getElementsByClassName('card-text');
-let img = document.getElementsByClassName('card-img-top');
+const viewBtn = document.getElementsByClassName('btn btn-sm btn-success');
+const cardsText = document.getElementsByClassName('card-text');
+const img = document.getElementsByClassName('card-img-top');
 
 for (let i = 0; i < viewBtn.length; i++) {
   viewBtn[i].addEventListener("mousemove", hidecard);
@@ -74,4 +74,26 @@ for (let i = 0; i < viewBtn.length; i++) {
 
 // Fonctionnalité 7
 
+const rightBtn = document.getElementsByClassName('btn-secondary')[0];
+const childcard = document.getElementsByClassName('col-md-4');
+const parentcard = document.getElementsByClassName('row');
 
+rightBtn.addEventListener("click", changeorder)
+function changeorder(){
+  parentcard[1].insertBefore(childcard[5], childcard[0])
+}
+
+
+// Fonctionnalité 8
+
+let leftBtn = document.getElementsByClassName('btn-primary')[0]
+
+leftBtn.addEventListener("click", blockaction)
+function blockaction(evt){
+  evt.preventDefault()
+}
+
+leftBtn.addEventListener("click", reverseOrder)
+function reverseOrder(){
+  parentcard[1].insertBefore(childcard[0], childcard[5].nextSibling)
+}
